@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.salvador.mariscal.examencasopractico.modelo.Platos;
 
@@ -21,6 +22,9 @@ public class Menu_Restaurant extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_restaurant);
+
+        Button buttonListar=(Button) findViewById(R.id.buttonListar);
+        buttonListar.setOnClickListener(l->listaPlatos());
 
         btn_agregar = findViewById(R.id.btn_agregar);
 
@@ -37,12 +41,16 @@ public class Menu_Restaurant extends AppCompatActivity {
         Cursor cursor = Platos.listaGestion(getApplicationContext());
         String[] from = new String[]{"id","nombre","tipo","ingredientes","costos","PVP"};
         int[] to = new int[]{R.id.txtID,R.id.txtNombre,R.id.txtTipos,R.id.txtIngredientes,R.id.txtCostos,R.id.txtPVP};
-        CursorAdapter cursorAdapter= new SimpleCursorAdapter(
-                getApplicationContext(),
-                R.layout.detalle_plato,
-                cursor, from,to,0
-        );
-        listPlatos.setAdapter(cursorAdapter);
+        try {
+            CursorAdapter cursorAdapter = new SimpleCursorAdapter(
+                    getApplicationContext(),
+                    R.layout.detalle_plato,
+                    cursor, from, to, 0
+            );
+            listPlatos.setAdapter(cursorAdapter);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Error en el listar",Toast.LENGTH_LONG).show();
+        }
     }
 
 

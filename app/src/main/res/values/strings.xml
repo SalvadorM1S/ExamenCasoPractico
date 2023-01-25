@@ -16,4 +16,6 @@
     <string name="id">ID</string>
     <string name="button">Button</string>
     <string name="agregar_platos">Agregar Platos</string>
+    <string name="listar">Listar</string>
+    <string name="todo">TODO</string>
 </resources>

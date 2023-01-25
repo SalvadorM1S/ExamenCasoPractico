@@ -49,7 +49,7 @@
             android:hint="@string/ingredientes"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:textColorHint="#78909C" />
+            android:textColorHint="#00838F" />
 
         <EditText
             android:id="@+id/editTextCosto"
@@ -76,5 +76,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/crear" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_marginTop="72dp"
+            android:contentDescription="@string/button"
+            android:onClick="tomarFoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
