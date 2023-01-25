@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ExamenCasoPractico</string>
+    <string name="bienvenidos">Bienvenidos</string>
+    <string name="continuar">Continuar</string>
 </resources>
