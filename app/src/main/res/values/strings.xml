@@ -2,4 +2,18 @@
     <string name="app_name">ExamenCasoPractico</string>
     <string name="bienvenidos">Bienvenidos</string>
     <string name="continuar">Continuar</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipo">Tipo</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="costo">Costo</string>
+    <string name="pvp">PVP</string>
+    <string name="crear">Crear</string>
+    <string name="nombres">Nombre</string>
+    <string name="tipos">Tipos</string>
+    <string name="ingrediente">Ingrediente</string>
+    <string name="costos">Costos</string>
+    <string name="pvps">pvp</string>
+    <string name="id">ID</string>
+    <string name="button">Button</string>
+    <string name="agregar_platos">Agregar Platos</string>
 </resources>

@@ -3,17 +3,21 @@ package com.salvador.mariscal.examencasopractico.modelo;
 import android.content.Context;
 import android.database.Cursor;
 
-public class gestion {
+public class Platos {
 
-    private int codigo;
+    private int id;
     private String nombre;
     private String tipo;
     private String ingredientes;
-    private String costo;
-    private String PVP;
+    private double costo;
+    private double PVP;
 
-    public gestion(int codigo, String nombre, String tipo, String ingredientes, String costo, String PVP) {
-        this.codigo = codigo;
+    public Platos() {
+
+    }
+
+    public Platos(int id, String nombre, String tipo, String ingredientes, double costo, double PVP) {
+        this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
         this.ingredientes = ingredientes;
@@ -22,26 +26,26 @@ public class gestion {
     }
 
     //MODELO
-    public void guardarPersona(Context context){
+    public void guardarGestion(Context context){
         String sql="INSERT INTO Restaurant (nombre,tipo,ingredientes,costo,PVP)";
         sql+="VALUES ('"+getNombre()+"','"+getTipo()+"','"+getIngredientes()+"','"+getCosto()+"','"+getPVP()+"')";
         BaseSQLiteHelper baseSQLiteHelper= new BaseSQLiteHelper(context);
         baseSQLiteHelper.getWritableDatabase().execSQL(sql);
     }
 
-    public static Cursor listaPersona(Context context){
-        String sql="select _rowid_ as _id, * from persona";
+    public static Cursor listaGestion(Context context){
+        String sql="select _rowid_ as _id, * from Restaurant";
         BaseSQLiteHelper sqLiteHelper= new BaseSQLiteHelper(context);
         return sqLiteHelper.getReadableDatabase().rawQuery(sql,null);
 
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getid() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setid(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -68,19 +72,19 @@ public class gestion {
         this.ingredientes = ingredientes;
     }
 
-    public String getCosto() {
+    public double getCosto() {
         return costo;
     }
 
-    public void setCosto(String costo) {
+    public void setCosto(double costo) {
         this.costo = costo;
     }
 
-    public String getPVP() {
+    public double getPVP() {
         return PVP;
     }
 
-    public void setPVP(String PVP) {
+    public void setPVP(double PVP) {
         this.PVP = PVP;
     }
 }

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.ExamenCasoPractico"
         tools:targetApi="31">
         <activity
+            android:name=".CrearPlatoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Menu_Restaurant"
             android:exported="false">
             <meta-data
