@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.salvador.mariscal.examencasopractico.modelo.BaseSQLiteHelper;
 import com.salvador.mariscal.examencasopractico.modelo.Platos;
 
 import java.io.FileOutputStream;
@@ -22,7 +23,6 @@ import java.util.Date;
 
 public class CrearPlatoActivity extends AppCompatActivity {
 
-    Button buttonGuardaPersona;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,9 @@ public class CrearPlatoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crear_plato);
         imageView=(ImageView) findViewById(R.id.imgView);
 
-        buttonGuardaPersona=(Button) findViewById(R.id.btn_crear);
+        final BaseSQLiteHelper developeru = new BaseSQLiteHelper(getApplicationContext());
+
+        Button buttonGuardaPersona=(Button) findViewById(R.id.btn_crear);
         buttonGuardaPersona.setOnClickListener(l->guardaPersona());
     }
 
@@ -71,17 +73,17 @@ public class CrearPlatoActivity extends AppCompatActivity {
 
 
     private void guardaPersona(){
-        EditText editTextNombre= findViewById(R.id.editTextNombre);
-        EditText editTextTipo= findViewById(R.id.editTextTipo);
-        EditText editTextIngredientes= findViewById(R.id.editTextIngredientes);
-        EditText editTextCosto= findViewById(R.id.editTextCosto);
-        EditText editTextPVP= findViewById(R.id.editTextPVP);
+        EditText editTextNombre=(EditText) findViewById(R.id.editTextNombre);
+        EditText editTextTipo=(EditText) findViewById(R.id.editTextTipo);
+        EditText editTextIngredientes=(EditText) findViewById(R.id.editTextIngredientes);
+        EditText editTextCosto=(EditText) findViewById(R.id.editTextCosto);
+        EditText editTextPVP=(  EditText) findViewById(R.id.editTextPVP);
 
-        String NombreT=editTextNombre.getText().toString().trim();
-        String TipoT=editTextTipo.getText().toString().trim();
-        String IngredientesT=editTextIngredientes.getText().toString().trim();
-        String CostoT=editTextCosto.getText().toString().trim();
-        String PVPT=editTextPVP.getText().toString().trim();
+        //String NombreT=editTextNombre.getText().toString().trim();
+        //String TipoT=editTextTipo.getText().toString().trim();
+        //String IngredientesT=editTextIngredientes.getText().toString().trim();
+        //String CostoT=editTextCosto.getText().toString().trim();
+        //String PVPT=editTextPVP.getText().toString().trim();
 
         Platos platos= new Platos();
         platos.setNombre(editTextNombre.getText().toString());
@@ -89,12 +91,12 @@ public class CrearPlatoActivity extends AppCompatActivity {
         platos.setIngredientes(editTextIngredientes.getText().toString());
         platos.setCosto(Double.parseDouble(editTextCosto.getText().toString()));
         platos.setPVP(Double.parseDouble(editTextPVP.getText().toString()));
-        if(NombreT.isEmpty() && TipoT.isEmpty() && IngredientesT.isEmpty()&& CostoT.isEmpty()&& PVPT.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Error al ingresar", Toast.LENGTH_LONG).show();
-        }else{
+        //if(NombreT.isEmpty() && TipoT.isEmpty() && IngredientesT.isEmpty()&& CostoT.isEmpty()&& PVPT.isEmpty()) {
+            //Toast.makeText(getApplicationContext(), "Error al ingresar", Toast.LENGTH_LONG).show();
+
             platos.guardarGestion(getApplicationContext());
             Toast.makeText(getApplicationContext(), "PLATO CREADA SATISFACTORIAMENTE", Toast.LENGTH_LONG).show();
-        }
+
     }
 
 

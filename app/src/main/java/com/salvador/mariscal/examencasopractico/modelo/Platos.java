@@ -27,7 +27,7 @@ public class Platos {
 
     //MODELO
     public void guardarGestion(Context context){
-        String sql="INSERT INTO Restaurant (nombre,tipo,ingredientes,costo,PVP)";
+        String sql="INSERT INTO 'Restaurant' (nombre,tipo,ingredientes,costo,PVP)";
         sql+="VALUES ('"+getNombre()+"','"+getTipo()+"','"+getIngredientes()+"','"+getCosto()+"','"+getPVP()+"')";
         BaseSQLiteHelper baseSQLiteHelper= new BaseSQLiteHelper(context);
         baseSQLiteHelper.getWritableDatabase().execSQL(sql);

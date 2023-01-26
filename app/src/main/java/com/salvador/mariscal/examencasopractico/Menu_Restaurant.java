@@ -12,22 +12,23 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import com.salvador.mariscal.examencasopractico.modelo.BaseSQLiteHelper;
 import com.salvador.mariscal.examencasopractico.modelo.Platos;
 
 public class Menu_Restaurant extends AppCompatActivity {
 
-    Button btn_agregar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_restaurant);
 
-        Button buttonListar=(Button) findViewById(R.id.buttonListar);
+        final BaseSQLiteHelper developeru = new BaseSQLiteHelper(getApplicationContext());
+
+        Button buttonListar=(Button) findViewById(R.id.button_Listar);
         buttonListar.setOnClickListener(l->listaPlatos());
 
-        btn_agregar = findViewById(R.id.btn_agregar);
-
+        Button btn_agregar = findViewById(R.id.btn_agregar);
         btn_agregar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

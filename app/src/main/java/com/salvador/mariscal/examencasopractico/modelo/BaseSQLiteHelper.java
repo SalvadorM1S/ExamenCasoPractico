@@ -15,6 +15,7 @@ import java.io.OutputStream;
 public class BaseSQLiteHelper extends SQLiteOpenHelper {
 
     private static final String BASE="Caso9SalvadorMariscal.db";
+    private static final int VERSION_BD=1;
     private Context miContexto;
 
     public BaseSQLiteHelper(@Nullable Context context) {
