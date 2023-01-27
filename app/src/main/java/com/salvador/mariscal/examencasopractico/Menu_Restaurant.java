@@ -1,6 +1,8 @@
 package com.salvador.mariscal.examencasopractico;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -38,7 +40,9 @@ public class Menu_Restaurant extends AppCompatActivity {
 
     }
     private void listaPlatos(){
-        ListView listPlatos=(ListView) findViewById(R.id.listViewPersonas);
+        ListView listPlatos=(ListView) findViewById(R.id.Listar_Plato);
+        //RecyclerView listPlatos = findViewById(R.id.ReciclerView);
+        //listPlatos.setLayoutManager(new LinearLayoutManager(this));
         Cursor cursor = Platos.listaGestion(getApplicationContext());
         String[] from = new String[]{"id","nombre","tipo","ingredientes","costos","PVP"};
         int[] to = new int[]{R.id.txtID,R.id.txtNombre,R.id.txtTipos,R.id.txtIngredientes,R.id.txtCostos,R.id.txtPVP};
